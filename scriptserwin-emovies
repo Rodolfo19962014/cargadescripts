@@ -1,0 +1,350 @@
+
+use ;
+
+db.CUST.dropIndex( "XAK1CUSTOMER" );
+
+use ;
+
+db.CUST.dropIndex( "XIE1CUSTOMER" );
+
+db.CUST.drop();
+
+use ;
+
+db.CUST_CREDIT.dropIndex( "XAK1CUSTOMER_CREDIT" );
+
+use ;
+
+db.CUST_CREDIT.dropIndex( "XIE1CUSTOMER_CREDIT" );
+
+db.CUST_CREDIT.drop();
+
+use ;
+
+db.MOVIE.dropIndex( "XAK1MOVIE" );
+
+db.MOVIE.drop();
+
+use ;
+
+db.STORE.dropIndex( "XIE1STORE" );
+
+db.STORE.drop();
+
+db.createCollection("CUST");
+
+db.CUST.insertOne({
+     "CUST_number": NumberInt(1511),
+     "CUST_address": "ex ",
+     "CUST_city": "tellus in ",
+     "CUST_first_name": "orci eu ",
+     "CUST_last_name": "tempus ",
+     "CUST_state": "orci tempus odio ",
+     "CUST_zip_code": NumberInt(2920),
+     "email": "eget orci ",
+     "MO_RENT_REC": [
+     {
+          "rental_record_date": new Timestamp(),
+          "mo_co_num": NumberInt(9899),
+          "movie_number": NumberInt(4605),
+          "soc_sec_number": NumberInt(8743),
+          "EMP_phone": NumberInt(2720),
+          "CUST_number": NumberInt(4716),
+          "rental_date": new Timestamp(),
+          "due_date": new Timestamp(),
+          "rental_status": "sit odio porttitor ",
+          "overdue_charge": NumberInt(8547),
+          "rental_rate": NumberInt(4364),
+          "payment_transaction_number": NumberInt(4191)
+     }
+     ],
+     "PAYMENT": [
+     {
+          "payment_transaction_number": NumberInt(8057),
+          "payment_type": "primis sit risus ",
+          "CUST_number": NumberInt(9082),
+          "customer_no": NumberInt(6663),
+          "payment_amount": NumberInt(9213),
+          "payment_date": new Timestamp(),
+          "payment_status": "enim ac vel ",
+          "EMP_number": "ligula ",
+          "check_bank_number": NumberInt(1230),
+          "check_number": NumberInt(1604),
+          "epay_vendor_number": NumberInt(5848),
+          "epay_account_number": NumberInt(1334),
+          "credit_card_number": "at ",
+          "credit_card_exp": new Timestamp(),
+          "credit_card_type": "erat lacinia ",
+          "MO_RENT_REC": [
+          {
+               "rental_record_date": new Timestamp(),
+               "mo_co_num": NumberInt(9296),
+               "movie_number": NumberInt(2528),
+               "soc_sec_number": NumberInt(6703),
+               "EMP_phone": NumberInt(6309),
+               "CUST_number": NumberInt(7601),
+               "rental_date": new Timestamp(),
+               "due_date": new Timestamp(),
+               "rental_status": "vel eu imperdiet ",
+               "overdue_charge": NumberInt(9458),
+               "rental_rate": NumberInt(6413),
+               "payment_transaction_number": NumberInt(4949)
+          }
+          ]
+     }
+     ]
+});
+
+use ;
+
+db.CUST.createIndex(
+{
+	"CUST_address": 1
+},
+{
+	unique: true,
+	"name" : "XAK1CUSTOMER"
+});
+
+use ;
+
+db.CUST.createIndex(
+{
+	"CUST_last_name": 1
+},
+{
+	"name" : "XIE1CUSTOMER"
+});
+
+db.createCollection("CUST_CREDIT");
+
+db.CUST_CREDIT.insertOne({
+     "CUST_number": NumberInt(7082),
+     "credit_card": NumberInt(3835),
+     "credit_card_exp": NumberInt(8382),
+     "status_code": "amet commodo hac ",
+     "MO_RENT_REC": [
+     {
+          "rental_record_date": new Timestamp(),
+          "mo_co_num": NumberInt(3936),
+          "movie_number": NumberInt(5928),
+          "soc_sec_number": NumberInt(9852),
+          "EMP_phone": NumberInt(5737),
+          "CUST_number": NumberInt(4973),
+          "rental_date": new Timestamp(),
+          "due_date": new Timestamp(),
+          "rental_status": "vulputate ",
+          "overdue_charge": NumberInt(4546),
+          "rental_rate": NumberInt(947),
+          "payment_transaction_number": NumberInt(9079)
+     }
+     ],
+     "PAYMENT": [
+     {
+          "payment_transaction_number": NumberInt(8445),
+          "payment_type": "lacus ",
+          "CUST_number": NumberInt(139),
+          "customer_no": NumberInt(4690),
+          "payment_amount": NumberInt(264),
+          "payment_date": new Timestamp(),
+          "payment_status": "at ",
+          "EMP_number": "ac venenatis ",
+          "check_bank_number": NumberInt(5917),
+          "check_number": NumberInt(6947),
+          "epay_vendor_number": NumberInt(6632),
+          "epay_account_number": NumberInt(231),
+          "credit_card_number": "et pharetra ",
+          "credit_card_exp": new Timestamp(),
+          "credit_card_type": "eget odio mi ",
+          "MO_RENT_REC": [
+          {
+               "rental_record_date": new Timestamp(),
+               "mo_co_num": NumberInt(8151),
+               "movie_number": NumberInt(7399),
+               "soc_sec_number": NumberInt(287),
+               "EMP_phone": NumberInt(1217),
+               "CUST_number": NumberInt(2396),
+               "rental_date": new Timestamp(),
+               "due_date": new Timestamp(),
+               "rental_status": "sit elit magna ",
+               "overdue_charge": NumberInt(9238),
+               "rental_rate": NumberInt(3738),
+               "payment_transaction_number": NumberInt(8439)
+          }
+          ]
+     }
+     ]
+});
+
+use ;
+
+db.CUST_CREDIT.createIndex(
+{
+	
+},
+{
+	unique: true,
+	"name" : "XAK1CUSTOMER_CREDIT"
+});
+
+use ;
+
+db.CUST_CREDIT.createIndex(
+{
+	
+},
+{
+	"name" : "XIE1CUSTOMER_CREDIT"
+});
+
+db.createCollection("MOVIE");
+
+db.MOVIE.insertOne({
+     "movie_number": NumberInt(5778),
+     "movie_title": "vel molestie ",
+     "movie_director": "sollicitudin tortor ",
+     "description": "nisl faucibus odio ",
+     "star_1_name": "a ac habitasse ",
+     "rating": "sodales ut hac ",
+     "star_2_name": "et ",
+     "genre": "massa ",
+     "rental_rate": NumberInt(3567),
+     "movie_url": "augue at ",
+     "movie_clip": BinData(0," "),
+     "MOVIE_COPY": [
+     {
+          "mo_co_num": NumberInt(2571),
+          "movie_number": NumberInt(4703),
+          "general_condition": "scelerisque nisi sit ",
+          "movie_format": "fringilla ",
+          "MO_RENT_REC": [
+          {
+               "rental_record_date": new Timestamp(),
+               "mo_co_num": NumberInt(3819),
+               "movie_number": NumberInt(9901),
+               "soc_sec_number": NumberInt(7268),
+               "EMP_phone": NumberInt(2372),
+               "CUST_number": NumberInt(9241),
+               "rental_date": new Timestamp(),
+               "due_date": new Timestamp(),
+               "rental_status": "ultrices ",
+               "overdue_charge": NumberInt(3879),
+               "rental_rate": NumberInt(1547),
+               "payment_transaction_number": NumberInt(3796)
+          }
+          ]
+     }
+     ],
+     "MOVIE_STORE": [
+     {
+          "movie_number": NumberInt(4078),
+          "store_number": NumberInt(4738)
+     }
+     ]
+});
+
+use ;
+
+db.MOVIE.createIndex(
+{
+	"movie_title": 1
+},
+{
+	unique: true,
+	"name" : "XAK1MOVIE"
+});
+
+db.createCollection("STORE");
+
+db.STORE.insertOne({
+     "store_number": NumberInt(9350),
+     "store_manager": "Pellentesque eget dapibus ",
+     "store_address": "vestibulum ",
+     "store_phone": NumberInt(7537),
+     "store_city": "efficitur ",
+     "store_state": "et erat platea ",
+     "store_zip_code": NumberInt(1156),
+     "store_address_2": "odio ",
+     "EMP": [
+     {
+          "EMP_number": "fringilla platea ",
+          "supervisor": "tincidunt ex et ",
+          "EMP_first_name": "sem a ",
+          "EMP_address": "Integer tincidunt erat ",
+          "EMP_phone": NumberInt(6859),
+          "EMP_address_2": "nulla ",
+          "soc_sec_number": NumberInt(7034),
+          "hire_date": new Timestamp(),
+          "salary": NumberInt(9411),
+          "email": "eget ",
+          "store_number": NumberInt(3384),
+          "MO_RENT_REC": [
+          {
+               "rental_record_date": new Timestamp(),
+               "mo_co_num": NumberInt(7823),
+               "movie_number": NumberInt(2959),
+               "soc_sec_number": NumberInt(5993),
+               "EMP_phone": NumberInt(7512),
+               "CUST_number": NumberInt(649),
+               "rental_date": new Timestamp(),
+               "due_date": new Timestamp(),
+               "rental_status": "neque at ",
+               "overdue_charge": NumberInt(3805),
+               "rental_rate": NumberInt(7177),
+               "payment_transaction_number": NumberInt(7694)
+          }
+          ],
+          "PAYMENT": [
+          {
+               "payment_transaction_number": NumberInt(2364),
+               "payment_type": "sit libero at ",
+               "CUST_number": NumberInt(9548),
+               "customer_no": NumberInt(4500),
+               "payment_amount": NumberInt(461),
+               "payment_date": new Timestamp(),
+               "payment_status": "ut ",
+               "EMP_number": "efficitur ante ",
+               "check_bank_number": NumberInt(1335),
+               "check_number": NumberInt(6571),
+               "epay_vendor_number": NumberInt(7119),
+               "epay_account_number": NumberInt(1974),
+               "credit_card_number": "augue ex ",
+               "credit_card_exp": new Timestamp(),
+               "credit_card_type": "pulvinar eros vel ",
+               "MO_RENT_REC": [
+               {
+                    "rental_record_date": new Timestamp(),
+                    "mo_co_num": NumberInt(1065),
+                    "movie_number": NumberInt(9027),
+                    "soc_sec_number": NumberInt(3676),
+                    "EMP_phone": NumberInt(3542),
+                    "CUST_number": NumberInt(695),
+                    "rental_date": new Timestamp(),
+                    "due_date": new Timestamp(),
+                    "rental_status": "amet mauris sapien ",
+                    "overdue_charge": NumberInt(2368),
+                    "rental_rate": NumberInt(9315),
+                    "payment_transaction_number": NumberInt(3144)
+               }
+               ]
+          }
+          ]
+     }
+     ],
+     "MOVIE_STORE": [
+     {
+          "movie_number": NumberInt(9277),
+          "store_number": NumberInt(1256)
+     }
+     ]
+});
+
+use ;
+
+db.STORE.createIndex(
+{
+	"store_manager": 1
+},
+{
+	"name" : "XIE1STORE"
+});
